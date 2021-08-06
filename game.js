@@ -1,3 +1,14 @@
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    console.log(e)
+   
+  });
+});
+
+
+/*
 let playerScore = 0;
 let computerScore = 0;
 
@@ -72,4 +83,5 @@ function isWinner() {
     return 'CONGRATULATIONS YOU WON THE BEST OF 5!'
   }
   
-}
+} 
+*/
