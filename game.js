@@ -1,57 +1,68 @@
 const rockButton = document.querySelector('.btn-rock');
 const paperButton = document.querySelector('.btn-paper');
 const scissorsButton = document.querySelector('.btn-scissors');
-
-rockButton.addEventListener('click', ()  => {
-  const playerChoise = 'rock';
-  console.log(playerChoise);
-  gameRound(playerChoise, computerPlayer());
-  
-})
-paperButton.addEventListener('click', () => {
-   const playerChoise = 'paper';
-  console.log(playerChoise);
-  
-  gameRound(playerChoise, computerPlayer());
-
-})
-scissorsButton.addEventListener('click', () => {
-  const playerChoise = 'scissors';
-  console.log(playerChoise);
-  gameRound(playerChoise, computerPlayer());
-
-})
+const container = document.querySelector('.container');
+const score = document.querySelector('.score');
+const message = document.querySelector('.message');
 
 let playerScore = 0;
 let computerScore = 0;
+let winScore = playerScore + computerScore;
 
+game();
+function game() {
+  
+
+rockButton.addEventListener('click', ()  => {
+  const playerChoise = 'rock';
+  gameRound(playerChoise);
+})
+
+paperButton.addEventListener('click', () => {
+   const playerChoise = 'paper';
+  gameRound(playerChoise);
+  
+})
+
+scissorsButton.addEventListener('click', () => {
+  const playerChoise = 'scissors';
+  gameRound(playerChoise);
+})
+  
+}
 function gameRound(playerChoise) {
   
+  
   if(playerChoise === computerPlayer()){
-console.log("Draw!");
+
+  message.innerText = ('Draw!');
 } else if(playerChoise === "rock" && computerPlayer() === "paper"){
   computerScore++;
-console.log("Computer beats you!");
+  message.innerText = ("Computer beats you! Scissors beats rock!");
 } else if(playerChoise === "rock" && computerPlayer() === "scissors"){
   playerScore++;
-console.log("You win! Rock beats Scissors");
+  message.innerText = ("You win! Rock beats Scissors");
 } else if(playerChoise === "paper" && computerPlayer() === "scissors"){
   computerScore++;
-console.log("Computer beats you, Scissors beat Paper!")
+  message.innerText =("Computer beats you, Scissors beat Paper!")
 } else if (playerChoise === "paper" && computerPlayer() === "rock"){
   playerScore++;
-console.log("You win, Paper beats Rock!");
+  message.innerText =("You win, Paper beats Rock!");
 } else if (playerChoise === "scissors" && computerPlayer() === "rock"){
   computerScore++;
-console.log("Computer wins, Rock beat Scissors");
+  message.innerText =("Computer wins, Rock beat Scissors");
 } else if (playerChoise === "rock" && computerPlayer() === "paper"){
   computerScore++;
-console.log("computer wins, Paper beats Rock!");
+  message.innerText =("computer wins, Paper beats Rock!");
 } else if (playerChoise === "scissors" && computerPlayer() === "paper"){
   playerScore++;
-console.log("You win! Scissors beat paper!");
+  message.innerText =("You win! Scissors beat paper!");
 }
+score.innerText = (`Your Current Score: ${playerScore} \n Computer Score: ${computerScore}`);
+container.innerText = (`You picked ${playerChoise}`);
+
 } 
+
 // Function that randomize computer RPC
 
 function computerPlayer(){
@@ -59,16 +70,16 @@ function computerPlayer(){
     const randomPlay = (Math.floor(Math.random() * 3))
   
     if (randomPlay === 0){
-      let computerChoise = "paper";
+      
     return 'rock';
   }
   else if (randomPlay === 1){
-    let computerChoise = "paper"
+    
     return 'paper';
   }
   else if (randomPlay=== 2){
-    const computerChoise = "paper"
-  return computerChoise;
+    
+  return 'scissors';
   
   }
   
@@ -128,3 +139,4 @@ function computerPlayer(){
 //   else {
 //     return 'CONGRATULATIONS YOU WON THE BEST OF 5!'
 //   }
+        
