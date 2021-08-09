@@ -6,5 +6,7 @@ A javascript Rock Paper Scissors Game.
 2. More features will be added in the future.
 3. Added GUI to learn DOM manipulation.
 
+TODO:
+
 - Error handling
 - Nicer GUI, continue on improving.
