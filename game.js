@@ -12,7 +12,6 @@ let winScore = playerScore + computerScore;
 game();
 function game() {
   
-
 rockButton.addEventListener('click', ()  => {
   const playerChoise = 'rock';
   gameRound(playerChoise);
@@ -28,8 +27,9 @@ scissorsButton.addEventListener('click', () => {
   const playerChoise = 'scissors';
   gameRound(playerChoise);
 })
+} 
   
-}
+
 function gameRound(playerChoise) {
   
   
@@ -53,13 +53,13 @@ function gameRound(playerChoise) {
   message.innerText =("Computer wins, Rock beat Scissors");
 } else if (playerChoise === "rock" && computerPlayer() === "paper"){
   computerScore++;
-  message.innerText =("computer wins, Paper beats Rock!");
+  message.innerText =("Computer wins, Paper beats Rock!");
 } else if (playerChoise === "scissors" && computerPlayer() === "paper"){
   playerScore++;
   message.innerText =("You win! Scissors beat paper!");
 }
 score.innerText = (`Your Current Score: ${playerScore} \n Computer Score: ${computerScore}`);
-container.innerText = (`You picked ${playerChoise}`);
+container.innerText = (`You picked ${playerChoise}...`);
 
 } 
 
@@ -128,15 +128,15 @@ function computerPlayer(){
 
 // console.log(isWinner());
 
-// function isWinner() {
-//   if (playerScore === computerScore) {
-//     return 'THE FIVE GAMES ENDED IN A DRAW!';
-//   }
+function isWinner() {
+   if (playerScore === computerScore) {
+    return 'THE FIVE GAMES ENDED IN A DRAW!';
+  }
 
-//   else if (playerScore < computerScore) {
-//     return 'COMPUTER WINS THE 5!'
-//   }
-//   else {
-//     return 'CONGRATULATIONS YOU WON THE BEST OF 5!'
-//   }
-        
+   else if (playerScore < computerScore) {
+     return 'COMPUTER WINS THE 5!'
+   }
+  else {
+    return 'CONGRATULATIONS YOU WON THE BEST OF 5!'
+   }
+  }
